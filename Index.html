@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes The Moon is beautiful</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vara@1.4.0/lib/vara.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="heart" id="left"></div>
+    <div class="heart" id="middle"></div>
+    <div class="heart" id="right"></div>
+    <div id="container"></div>
+</body>
+<script>
+    var vara = new Vara(
+        "#container",
+        "https://raw.githubusercontent.com/akzhy/Vara/master/fonts/Pacifico/PacificoSLO.json",
+        [
+            {
+                text: "Yes, I wish i could watch it with you",
+                duration: 3000,
+                delay : 0
+            }
+        ],{
+            fontsize: 20,
+            color: "#0b1522",
+            strokeWidth : 2,
+            textAlign : "center"
+        }
+    );
+
+    vara.ready(function(){
+        var erase = true;
+        vara.animationEnd(function(i, o){
+            if(i=="no_erase")
+                erase = false;
+            if(erase){
+                o.container.style.transition = "opacity 1s 1s";
+                // o.container.style.opacity = 0;
+            }
+        })
+    })
+</script>
+
+</html>
